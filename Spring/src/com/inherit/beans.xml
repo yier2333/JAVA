@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<bean id="student" class="com.inherit.Student">
+<property name="name" value="朱曼"/>
+<property name="age" value="24"/>
+</bean>
+
+<bean id="graduate" parent="student" class="com.inherit.Graduate">
+<!-- 如果自己单独配置name和age，则会替换从父对象继承的属性值 -->
+<property name="name" value="岸琪"/>
+<property name="degree" value="硕士"/>
+</bean>
+</beans>

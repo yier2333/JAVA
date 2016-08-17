@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- 在容器文件中配置bean(service/dao/domain/action/数据源等都是bean) -->
+<!-- bean元素的作用是：当我们的spring框架加载的时候，spring就会自动的创建一个bean对象并放入内存-->
+<!-- 为什么在这里配置了就生成了一个对象，这就是利用到了反射机制，在这里配置了类的名称，通过类名找到方法及属性，然后使用方法的反射机制给属性赋值.
+	  这表明这个setName方法必须写，因为我们对属性的赋值只能通过方法的反射来完成，否则注入不进去 -->
+
+<!-- <bean id="userService"  scope="prototype" class="com.service.UserService">  等价于 UserService userService = new UserService();
+	<property name="name">  
+		<value>朱曼</value>  给实例对象注入属性值,等价于 userService.setName("朱曼");
+	</property>
+	
+	在userService中引用另外一个配置好的bean
+		 这就体现了维护bean与bean之间的关系 
+	
+	<property name="byeService" ref="byeService" />
+</bean> -->
+
+<bean id="byeService" destroy-method="mydestroy" scope="prototype" class="com.service.ByeService">  	
+	<!-- 还有一种注入值的方法 -->
+	<property name="name" value="胡岸琪"></property>	
+</bean>
+
+<bean id="byeService2" init-method="myinit" destroy-method="mydestroy" scope="prototype" class="com.service.ByeService2">  	
+	<!-- 还有一种注入值的方法 -->
+	<property name="name" value="曼曼"></property>	
+</bean>
+
+<!-- 配置我们自己的后置处理器（有点类似于过滤器） -->
+<bean id="myBeanPsotProcessor" class="com.service.MyBeanPostProcessor">
+</bean>
+
+</beans>

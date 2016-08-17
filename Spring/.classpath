@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/spring/韩顺平.2011版.spring视频教程.需要的开发软件包/韩顺平 2011版 spring视频教程 需要的开发软件包/spring-framework-2.5.5-with-dependencies/spring-framework-2.5.5/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/spring/韩顺平.2011版.spring视频教程.需要的开发软件包/韩顺平 2011版 spring视频教程 需要的开发软件包/spring-framework-2.5.5-with-dependencies/spring-framework-2.5.5/spring.jar" sourcepath="C:/Users/Administrator/Desktop/spring/韩顺平.2011版.spring视频教程.需要的开发软件包/韩顺平 2011版 spring视频教程 需要的开发软件包/spring-framework-2.5.5-with-dependencies/spring-framework-2.5.5/src"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

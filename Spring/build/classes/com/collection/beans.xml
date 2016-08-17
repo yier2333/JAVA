@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<bean id="department" class="com.collection.Department">
+<property name="name" value="财务部"></property>
+<!-- 给数组注入值 -->
+<property name="empName" >
+	<list>
+		<value>小明</value>
+		<value>大明</value>
+		<value>大大明</value>
+	</list>
+</property>
+<!-- 给List注入值 -->
+<property name="empList">
+	<list>
+		<ref bean="emp1"/>
+		<ref bean="emp2"/>
+		<ref bean="emp2"/>	<!-- list中可以有相同的对象 -->
+		<ref bean="emp2"/>	
+		<ref bean="emp2"/>		
+	</list>	
+</property>
+<!-- 给Set注入值 -->
+<property name="empSet">
+	<set>
+		<ref bean="emp1"/>  <!-- bean配置好后可以复用 -->
+		<ref bean="emp2"/>	<!-- set中重复添加的元素会覆盖掉前面的元素 -->
+	</set>	
+</property>
+<!-- 给Map注入值 -->
+<property name="empMap">
+	<map>
+		<entry key="1" value-ref="emp1" /> <!-- Map中相同id重复添加会覆盖前面的元素 -->
+		<entry key="2" value-ref="emp2" />	
+	</map>	
+</property>
+<!-- 给属性集合配置 -->
+<property name="properties">
+	<props>
+		<prop key="pp1">hello</prop>
+		<prop key="pp2">angel</prop>
+	</props>
+</property>
+</bean>
+
+<bean id="emp1" class="com.collection.Employee">
+<property name="name" value="北京"></property>
+<property name="id" value="1"></property>
+</bean>
+
+<bean id="emp2" class="com.collection.Employee">
+<property name="name" value="天津"></property>
+<property name="id" value="2"></property>
+</bean>
+
+</beans>
